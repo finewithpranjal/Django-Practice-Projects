@@ -1,0 +1,40 @@
+
+{% extends 'accounts/base.html' %}
+
+{% block title %}Home | Custom Auth{% endblock %}
+
+{% block content %}
+
+<div class="min-h-[60vh] flex flex-col items-center justify-center text-center">
+
+    <span class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">
+        Welcome
+    </span>
+
+    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900">
+        Authentication, <br>
+        made simple.
+    </h1>
+
+    <p class="mt-5 text-gray-500 max-w-md leading-relaxed">
+        A clean and secure authentication system built with Django.
+        Manage your account with ease.
+    </p>
+
+    {% if not user.is_authenticated %}
+        <div class="flex gap-3 mt-8">
+            <a href="{% url 'register' %}"
+               class="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition">
+                Create Account
+            </a>
+
+            <a href="{% url 'login' %}"
+               class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-100 transition">
+                Sign In
+            </a>
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

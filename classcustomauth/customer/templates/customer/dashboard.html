@@ -1,0 +1,42 @@
+
+{% extends "accounts/base.html" %}
+
+{% block title %}Dashboard{% endblock title %}
+
+{% block content %}
+
+<div class="max-w-3xl mx-auto px-6 py-12">
+
+    <div class="mb-8">
+        <p class="text-sm font-medium text-gray-500 mb-2">
+            YOUR ACCOUNT
+        </p>
+
+        <h1 class="text-3xl font-bold text-gray-900 tracking-tight">
+            Welcome back, {{ user.name|default:user.email }}
+        </h1>
+
+        <p class="mt-2 text-gray-500 text-sm">
+            Manage your account settings and keep your profile secure.
+        </p>
+    </div>
+
+    <div class="border-t border-gray-200 pt-6">
+        <h2 class="text-base font-semibold text-gray-900 mb-1">
+            Account Security
+        </h2>
+
+        <p class="text-sm text-gray-500 mb-4">
+            Keep your password updated to protect your account.
+        </p>
+
+        <a href="{% url 'password_change' %}"
+           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gray-900 text-white text-sm font-medium hover:bg-gray-700 transition duration-300">
+            Change Password
+            <span class="text-gray-400">→</span>
+        </a>
+    </div>
+
+</div>
+
+{% endblock content %}
